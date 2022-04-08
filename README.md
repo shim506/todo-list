@@ -45,6 +45,6 @@ https://docs.google.com/spreadsheets/d/1bPJdE0i-rjL-GX4rrXt58XGROvmyIbmn6gMUzgfN
 - 카드에대한 요청이 발생하면 로그 또한 서버에서 생성후 응답받음
 - 추후 ) 로그에대한 마지막 아이디를 보내는 것으로 그 다음 로그만 ㅂ
 
-### 4/8이 저녁회의
+### 4/8이 저녁 회의
 - history api 개수 및 다양성 증가 
 - 카드 "업로드데이트" 제거  
