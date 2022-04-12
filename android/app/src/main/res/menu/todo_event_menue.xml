@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_move_to_done"
+        android:title="@string/menu_move_to_done" />
+
+    <item
+        android:id="@+id/menu_update"
+        android:title="@string/menu_update" />
+
+    <item
+        android:id="@+id/menu_remove"
+        android:title="@string/menu_remove" />
+
+
+</menu>

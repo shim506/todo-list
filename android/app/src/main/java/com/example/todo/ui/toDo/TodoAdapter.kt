@@ -1,20 +1,34 @@
 package com.example.todo.ui.toDo
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.R
+import android.app.Activity
+import android.view.*
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.databinding.TodoItemBinding
 import com.example.todo.model.TodoItem
 
+
 class TodoAdapter(
     todoDiffCallback: DiffUtil.ItemCallback<TodoItem>
 ) :
     ListAdapter<TodoItem, TodoAdapter.ViewHolder>(todoDiffCallback) {
-    class ViewHolder(private val itemViewBinding: TodoItemBinding) : RecyclerView.ViewHolder(itemViewBinding.root) {
+    class ViewHolder(private val itemViewBinding: TodoItemBinding) : RecyclerView.ViewHolder(itemViewBinding.root) , View.OnCreateContextMenuListener {
         fun bind(cardItem: TodoItem) {
             itemViewBinding.toDoItem = cardItem
+           itemView.setOnCreateContextMenuListener(this)
+        }
+
+        override fun onCreateContextMenu(
+            menu: ContextMenu?,
+            view: View?,
+            menuInfo: ContextMenu.ContextMenuInfo?
+        ) {
+            val inflater: MenuInflater = MenuInflater(view?.context)
+            inflater.inflate(R.menu., menu)
+
+            (view?.context as Activity).menuInflater.inflate(R.menu., menu)
         }
     }
 
