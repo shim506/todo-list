@@ -3,19 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="toDoItem"
             type="com.example.todo.model.TodoItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/todo_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/white"
         android:paddingLeft="10dp"
         android:paddingTop="20dp"
         android:paddingRight="10dp"
-        android:layout_margin="10dp"
-        android:background="@color/white"
         android:paddingBottom="20dp">
 
         <TextView
@@ -23,7 +25,7 @@
             style="@style/HeadLine6.Bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text= "@{toDoItem.title}"
+            android:text="@{toDoItem.title}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

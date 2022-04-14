@@ -63,6 +63,7 @@ class ToDoViewModel(
     private fun loadTodoList() {
         viewModelScope.launch {
             val totalList = toDoRepository.getTodoItems()
+            Log.d("testTodo", totalList!!.size.toString())
             val tempTodoList = mutableListOf<TodoItem>()
             val progressList = mutableListOf<TodoItem>()
             val doneList = mutableListOf<TodoItem>()

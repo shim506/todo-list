@@ -17,7 +17,7 @@ import com.example.todo.model.*
 import com.example.todo.ui.action.ActionAdapter
 import com.example.todo.ui.common.ViewModelFactory
 
-class ToDoActivity : AppCompatActivity(), TodoAdapter.UpdateDialogListener {
+class ToDoActivity : AppCompatActivity(), TodoAdapter.UpdateDialogListener, MyDragListener {
 
     private lateinit var binding: ActivityTodoBinding
     private lateinit var todoAdapter: TodoAdapter
@@ -33,9 +33,7 @@ class ToDoActivity : AppCompatActivity(), TodoAdapter.UpdateDialogListener {
         setToolBar()
         initializeRecyclerViews()
         initializeTodoTitleViews()
-       // addDummyDataInRecyclerView()
-
-
+        // addDummyDataInRecyclerView()
     }
 
     private fun initializeTodoTitleViews() {
@@ -122,9 +120,9 @@ class ToDoActivity : AppCompatActivity(), TodoAdapter.UpdateDialogListener {
 //    }
 
     private fun initializeRecyclerViews() {
-        todoAdapter = TodoAdapter(this,this,toDoViewModel, TodoDiffCallback())
-        inProgressAdapter = TodoAdapter(this,this,toDoViewModel,TodoDiffCallback())
-        doneAdapter = TodoAdapter(this,this,toDoViewModel,TodoDiffCallback())
+        todoAdapter = TodoAdapter(this, this, toDoViewModel, this, TodoDiffCallback())
+        inProgressAdapter = TodoAdapter(this, this, toDoViewModel, this, TodoDiffCallback())
+        doneAdapter = TodoAdapter(this, this, toDoViewModel, this, TodoDiffCallback())
         actionAdapter = ActionAdapter(ActionDiffCallback())
 
         binding.rvTodo.adapter = todoAdapter
@@ -159,8 +157,12 @@ class ToDoActivity : AppCompatActivity(), TodoAdapter.UpdateDialogListener {
         toDoViewModel.actionList.observe(this) {
             actionAdapter.submitList(it)
             // 테스트용
-           // binding.todoTitleViewTodo.count.text = it?.size.toString()
+            // binding.todoTitleViewTodo.count.text = it?.size.toString()
         }
+
+        binding.rvTodo.setOnDragListener(todoAdapter.dragInstance)
+        binding.rvInProgress.setOnDragListener(inProgressAdapter.dragInstance)
+        binding.rvDone.setOnDragListener(doneAdapter.dragInstance)
 
     }
 
