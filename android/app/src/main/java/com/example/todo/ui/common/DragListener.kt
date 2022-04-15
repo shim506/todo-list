@@ -69,19 +69,19 @@ class DragListener(private val listener: ToDoMoveListener) : View.OnDragListener
                                                 ProgressType.TO_DO,
                                                 null,
                                                 targetData.next,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                             rvInProgress -> listener.moveData(
                                                 ProgressType.IN_PROGRESS,
                                                 null,
                                                 targetData.next,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                             rvDone -> listener.moveData(
                                                 ProgressType.DONE,
                                                 null,
                                                 targetData.next,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                         }
                                     }
@@ -91,19 +91,19 @@ class DragListener(private val listener: ToDoMoveListener) : View.OnDragListener
                                                 ProgressType.TO_DO,
                                                 prevItemId,
                                                 null,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                             rvInProgress -> listener.moveData(
                                                 ProgressType.IN_PROGRESS,
                                                 prevItemId,
                                                 null,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                             rvDone -> listener.moveData(
                                                 ProgressType.DONE,
                                                 prevItemId,
                                                 null,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                         }
                                     }
@@ -113,19 +113,19 @@ class DragListener(private val listener: ToDoMoveListener) : View.OnDragListener
                                                 ProgressType.TO_DO,
                                                 prevItemId,
                                                 targetData.next,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                             rvInProgress -> listener.moveData(
                                                 ProgressType.IN_PROGRESS,
                                                 prevItemId,
                                                 targetData.next,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                             rvDone -> listener.moveData(
                                                 ProgressType.DONE,
                                                 prevItemId,
                                                 targetData.next,
-                                                sourceData.itemId
+                                                sourceData.itemId!!
                                             )
                                         }
                                     }
@@ -138,16 +138,16 @@ class DragListener(private val listener: ToDoMoveListener) : View.OnDragListener
                                 println(sourceData.title)
                                 when (target.id) {
                                     rvTodo -> listener.moveData(
-                                        ProgressType.TO_DO, prevDataId, null, sourceData.itemId
+                                        ProgressType.TO_DO, prevDataId, null, sourceData.itemId!!
                                     )
                                     rvInProgress -> listener.moveData(
                                         ProgressType.IN_PROGRESS,
                                         prevDataId,
                                         null,
-                                        sourceData.itemId
+                                        sourceData.itemId!!
                                     )
                                     rvDone -> listener.moveData(
-                                        ProgressType.DONE, prevDataId, null, sourceData.itemId
+                                        ProgressType.DONE, prevDataId, null, sourceData.itemId!!
                                     )
                                 }
                             }
